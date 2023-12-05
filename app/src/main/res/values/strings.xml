@@ -24,4 +24,5 @@
     <string name="viewDetail">View Detail</string>
     <string name="bahanResep">Bahan-bahan</string>
     <string name="caraBuat">Tahap-tahap Pembuatan</string>
+    <string name="namaResep">Nama Resep</string>
 </resources>
