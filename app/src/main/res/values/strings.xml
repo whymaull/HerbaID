@@ -20,4 +20,6 @@
     <string name="about">About</string>
     <string name="home">Home</string>
     <string name="recipe">Resep</string>
+    <string name="halamanResep">Recipe</string>
+    <string name="viewDetail">View Detail</string>
 </resources>

@@ -1,13 +1,12 @@
-package com.whymaull.herbaid.ui.recipe
+package com.whymaull.herbaid.ui.favorite
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.whymaull.herbaid.R
 
-class RecipeActivity : AppCompatActivity() {
+class FavoriteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recipe)
+        setContentView(R.layout.activity_favorite)
     }
-
 }

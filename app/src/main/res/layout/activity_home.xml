@@ -45,12 +45,38 @@
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="ContentDescription" />
 
-
-    <com.google.android.material.search.SearchBar
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
-        tools:layout_editor_absoluteX="-16dp"/>
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/iconImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/baseline_arrow_down_24"
+            android:contentDescription="Dropdown Icon"/>
+
+        <!-- Input text field -->
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter text" />
+
+
+    </LinearLayout>
+
+    
+
+<!--    <com.google.android.material.search.SearchBar-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/guideline"-->
+<!--        tools:layout_editor_absoluteX="-16dp"/>-->
 <!--        <com.google.android.material.search.SearchView-->
 <!--            android:id="@+id/searchView"-->
 <!--            android:layout_width="match_parent"-->
@@ -60,17 +86,17 @@
 <!--            android:queryHint="@string/search"-->
 <!--            app:iconifiedByDefault="false"-->
 <!--            app:queryHint="@string/search" />-->
-<!--    -->
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@color/bg"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/nav_menu"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        tools:layout_editor_absoluteX="8dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
