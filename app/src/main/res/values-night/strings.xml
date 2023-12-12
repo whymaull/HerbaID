@@ -24,4 +24,5 @@
     <string name="bahanResep">Bahan-bahan</string>
     <string name="caraBuat">Tahap-tahap Pembuatan</string>
     <string name="namaResep">Nama Resep</string>
+    <string name="favorite">Favorit</string>
 </resources>
