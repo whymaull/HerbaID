@@ -1,44 +1,66 @@
 package com.whymaull.herbaid.data.api
 
-import com.whymaull.herbaid.data.response.AddFavoriteRequest
 import com.whymaull.herbaid.data.response.ApiResponse
-import com.whymaull.herbaid.data.response.ComplaintRequest
 import com.whymaull.herbaid.data.response.ComplaintResponse
 import com.whymaull.herbaid.data.response.FavoriteRecipesResponse
-import com.whymaull.herbaid.data.response.LogoutRequest
 import com.whymaull.herbaid.data.response.RecipesResponse
 import com.whymaull.herbaid.data.response.RecommendedRecipesResponse
-import com.whymaull.herbaid.data.response.SignInRequest
-import com.whymaull.herbaid.data.response.SignUpRequest
-import com.whymaull.herbaid.data.response.TokenResponse
-import retrofit2.http.Body
+import com.whymaull.herbaid.data.response.ResponseLogin
+import com.whymaull.herbaid.data.response.ResponseRegister
+import retrofit2.Call
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface ApiService {
 
-    @POST("/api/auth/signup")
-    suspend fun signUp(@Body request: SignUpRequest): ApiResponse
+    @FormUrlEncoded
+    @POST("api/auth/signup")
+    fun signUp(
+        @Field("username") username: String,
+        @Field("email") email: String,
+        @Field("password") password: String,
+    )
 
-    @POST("/api/auth/signin")
-    suspend fun signIn(@Body request: SignInRequest): TokenResponse
+    @FormUrlEncoded
+    @POST("api/auth/signin")
+    fun signIn(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): Call<ResponseLogin>
 
-    @POST("/api/auth/logout")
-    suspend fun logout(@Body request: LogoutRequest): ApiResponse
+    @POST("api/auth/logout")
+    fun logout(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): ApiResponse
 
-    @POST("/api/complaints")
-    suspend fun addComplaint(@Body request: ComplaintRequest): ComplaintResponse
 
-    @POST("/api/complaints/recommended")
-    suspend fun getRecommendedRecipes(@Body request: ComplaintRequest): RecommendedRecipesResponse
+    @POST("api/complaints")
+    fun addComplaint(
+        @Field("complaintType") complaintType: String
+    ): Call<ComplaintResponse>
 
-    @GET("/api/recipes")
-    suspend fun getAllRecipes(): RecipesResponse
+    @POST("api/complaints/recommended")
+    fun getRecommendedRecipes(
+        @Field("complaintType") complaintType: String
+    ): Call<RecommendedRecipesResponse>
 
-    @GET("/api/user/favorites")
-    suspend fun getFavoriteRecipes(): FavoriteRecipesResponse
+    @GET("api/recipes")
+    fun getAllRecipes(
+        @Header("Authorization") token: String,
+    ): RecipesResponse
 
-    @POST("/api/user/favorites/add")
-    suspend fun addFavoriteRecipe(@Body request: AddFavoriteRequest): ApiResponse
+    @GET("api/user/favorites")
+    fun getFavoriteRecipes(
+        @Header("Authorization") token: String,
+    ): FavoriteRecipesResponse
+
+    @POST("api/user/favorites/add")
+    fun addFavoriteRecipe(
+        @Field("recipeId") recipeId: String
+    ): ApiResponse
 
 }
