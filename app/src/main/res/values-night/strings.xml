@@ -25,4 +25,6 @@
     <string name="caraBuat">Tahap-tahap Pembuatan</string>
     <string name="namaResep">Nama Resep</string>
     <string name="favorite">Favorit</string>
+    <string name="herbalIngredients">Komposisi Resep Herbal</string>
+    <string name="herbalName">Resep Herbal</string>
 </resources>
